@@ -1,6 +1,20 @@
-# AngularRecipeBookAndShoppingList
+# Angular Recipe Book And Shopping List
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
+
+## Project Architecture
+* Root                      - Component
+  * Header                  - Component
+  * Shopping List           - Feature
+    * Shopping List         - Component
+    * Shopping List Edit    - Component
+    * Ingredient            - Model
+  * Recipe Book             - Feature
+    * Recipe Item           - Component
+    * RecipesComponent      - Component
+      * Recipe List         - Component
+      * Recipe Detail       - Component
+    * Recipe                - Model
 
 ## Development server
 
