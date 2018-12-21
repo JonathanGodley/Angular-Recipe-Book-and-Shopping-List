@@ -11,7 +11,12 @@ export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
     new Recipe(
       'A Test Recipe',
-      'This is a test recipe used for testing the + application\'s basic functionality',
+      'This is a test recipe',
+      'http://clipart-library.com/data_images/125152.png'
+    ),
+    new Recipe(
+      'A Test Recipe',
+      'This is a test recipe',
       'http://clipart-library.com/data_images/125152.png'
     )
   ];
