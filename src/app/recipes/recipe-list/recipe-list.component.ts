@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Recipe} from '../recipe.model';
 
 @Component({
@@ -8,6 +8,7 @@ import {Recipe} from '../recipe.model';
 })
 // TODO: use local image hosting rather than URLs
 export class RecipeListComponent implements OnInit {
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
   recipes: Recipe[] = [
     new Recipe(
       'A Test Recipe',
@@ -15,8 +16,8 @@ export class RecipeListComponent implements OnInit {
       'http://clipart-library.com/data_images/125152.png'
     ),
     new Recipe(
-      'A Test Recipe',
-      'This is a test recipe',
+      'Another Test Recipe',
+      'This is also a test recipe',
       'http://clipart-library.com/data_images/125152.png'
     )
   ];
@@ -25,4 +26,7 @@ export class RecipeListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onRecipeSelected(recipe: Recipe) {
+    this.recipeWasSelected.emit(recipe);
+  }
 }
