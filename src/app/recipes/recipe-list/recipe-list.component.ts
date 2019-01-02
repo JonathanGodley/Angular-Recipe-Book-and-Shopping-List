@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Recipe} from '../recipe.model';
+import {RecipeService} from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -9,21 +10,12 @@ import {Recipe} from '../recipe.model';
 // TODO: use local image hosting rather than URLs
 export class RecipeListComponent implements OnInit {
   @Output() recipeWasSelected = new EventEmitter<Recipe>();
-  recipes: Recipe[] = [
-    new Recipe(
-      'A Test Recipe',
-      'This is a test recipe',
-      'http://clipart-library.com/data_images/125152.png'
-    ),
-    new Recipe(
-      'Another Test Recipe',
-      'This is also a test recipe',
-      'http://clipart-library.com/data_images/125152.png'
-    )
-  ];
-  constructor() { }
+  recipes: Recipe[];
+
+  constructor(private recipeService: RecipeService) { }
 
   ngOnInit() {
+    this.recipes = this.recipeService.getRecipes();
   }
 
   onRecipeSelected(recipe: Recipe) {
